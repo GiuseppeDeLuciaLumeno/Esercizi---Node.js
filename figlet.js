@@ -1,18 +1,17 @@
 const art = require("figlet")
 
-const configArt = (err, data) => {
-    if (err) {
-        console.log(`Errore: codice/tipo ${err}`)
-    }
-
-   console.log(data)
-}
-
 let textToanimate = "Benvenuti in Develhope"
 
+const artAttack = art(textToanimate, (err, finalText) => {
+    if (err) {
+        console.log(`Errore tipo/codice: ${err}`)
+    }
+    console.log(`Testo:
+${finalText}`)
+})
 
-const artAttack = art(textToanimate, configArt)
 
 
+module.exports = artAttack   //in case of export width Common js
 
 
