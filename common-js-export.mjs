@@ -5,4 +5,4 @@ const getName = (name) => {
     return `Il mio nome è: ${name}`
 }
 
-module.exports = getName
+export default getName
