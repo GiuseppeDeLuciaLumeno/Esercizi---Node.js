@@ -1,6 +1,6 @@
 import supertest from "supertest";
-import {app, obj} from "./server.js";
-
+import { app } from "./server.js";
+import { obj } from "./database.js";
 
 const request = supertest(app)
 
