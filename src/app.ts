@@ -9,10 +9,12 @@ import {
     PlanetData
 } from "./lib/validation";
 import { PrismaClient } from '@prisma/client'
+import { initMulterMiddleware } from "./lib/middleware/multer";
 
+const upload = initMulterMiddleware();
 
 const corsOptions = {
-    origin : "http://localhost:8080"
+    origin :"http://localhost:8080"
 }
 
 const prisma = new PrismaClient()
@@ -88,6 +90,20 @@ app.delete("/planets/:id(\\d+)", async (request, response, next) => {
     }
 });
 
+app.post("/planets/:id(\\d+)/photo",
+    upload.single("photo"),
+    async (request, response, next) => {
+        console.log("request.file", request.file);
+
+        if (!request.file) {
+            response.status(400);
+            return next("No photo file uploaded.");
+        }
+
+        const photoFilename = request.file.filename;
+
+        response.status(201).json({ photoFilename });
+});
 
 app.use(validationErrorMiddleware);
 
