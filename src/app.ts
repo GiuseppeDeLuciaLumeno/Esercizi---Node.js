@@ -1,8 +1,9 @@
+
 import express from "express";
 import "express-async-errors";
 
 
-import { validationErrorMiddleware } from "./lib/validation"
+import { validationErrorMiddleware } from "./lib/validation";
 import { initCorsMiddleware } from "./lib/middleware/cors";
 import { initSessionMiddleware } from "./lib/middleware/session";
 import passport from "passport";
