@@ -1,0 +1,12 @@
+{
+    "extends": "@tsconfig/node16/tsconfig.json",
+    "compilerOptions": {
+        "outDir": "./distribution"
+    },
+	 "include": [
+        "./src/**/*.ts"
+    ],
+	"exclude": [
+        "./src/**/*.test.ts"
+    ]
+}

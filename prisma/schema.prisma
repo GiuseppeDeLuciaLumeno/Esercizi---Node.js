@@ -10,8 +10,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model user {
-  id Int @id @default(autoincrement())
-  username String @unique
-  password String
+model Planet {
+  id              Int      @id @default(autoincrement())
+  name            String    @db.VarChar(255)
+  description     String?
+  diameter        Int
+  moons           Int
+  createdAt       DateTime  @default(now())
+  updateAt        DateTime  @updatedAt
 }
